@@ -1,5 +1,6 @@
 from textwrap import dedent
 from agno.agent import Agent
+from agno.models.google import Gemini
 from agno.tools.serpapi import SerpApiTools
 import streamlit as st
 import re
@@ -75,7 +76,7 @@ if openai_api_key and serp_api_key:
     researcher = Agent(
         name="Researcher",
         role="Searches for travel destinations, activities, and accommodations based on user preferences",
-        model=OpenAIChat(id="gpt-4o", api_key=openai_api_key),
+        model = Gemini(id="gemini-2.0-flash-exp", api_key=openai_api_key),
         description=dedent(
             """\
         You are a world-class travel researcher. Given a travel destination and the number of days the user wants to travel for,
@@ -154,4 +155,5 @@ if openai_api_key and serp_api_key:
                 data=ics_content,
                 file_name="travel_itinerary.ics",
                 mime="text/calendar"
+
             )

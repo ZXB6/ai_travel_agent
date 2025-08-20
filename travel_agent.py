@@ -96,7 +96,7 @@ if openai_api_key and serp_api_key:
     planner = Agent(
         name="Planner",
         role="Generates a draft itinerary based on user preferences and research results",
-        model=OpenAIChat(id="gpt-4o", api_key=openai_api_key),
+        model=Gemini(id="gemini-2.0-flash-exp", api_key=openai_api_key),
         description=dedent(
             """\
         You are a senior travel planner. Given a travel destination, the number of days the user wants to travel for, and a list of research results,
@@ -157,3 +157,4 @@ if openai_api_key and serp_api_key:
                 mime="text/calendar"
 
             )
+

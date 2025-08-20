@@ -2,4 +2,5 @@ streamlit
 agno
 openai
 google-search-results
+google-genai==1.9.0
 icalendar
